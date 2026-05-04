@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Yandex Auth">
-  <rect width="64" height="64" rx="12" fill="#111827"/>
-  <circle cx="32" cy="32" r="20" fill="#fc3f1d"/>
-  <path fill="#fff" d="M35.9 48h-6.6V35.1l-9.1-19.1h7.1l5.4 12.5 5.3-12.5h6.8l-8.9 19.1V48Z"/>
+  <rect x="2" y="2" width="60" height="60" rx="10" fill="#fff"/>
+  <rect x="2.5" y="2.5" width="59" height="59" rx="9.5" fill="none" stroke="#e5e7eb"/>
+  <path fill="#fc3f1d" d="M14 13h10.2l8.1 18.8L40.4 13H50L37.1 40.2V51h-9.8V40.2L14 13Z"/>
 </svg>

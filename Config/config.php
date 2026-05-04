@@ -3,7 +3,7 @@
 return [
     'name'        => 'Yandex Auth',
     'description' => 'Yandex sign-in for existing Mautic users matched by email.',
-    'version'     => '1.0.2',
+    'version'     => '1.0.3',
     'author'      => 'Sales Snap',
     'services'    => [
         'events' => [
