@@ -19,14 +19,17 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class YandexAuthSubscriber implements EventSubscriberInterface
 {
+    private YandexOAuthClient $yandexClient;
+
     public function __construct(
         private IntegrationHelper $integrationHelper,
         private RouterInterface $router,
         private TranslatorInterface $translator,
         private EntityManagerInterface $entityManager,
         private LoggerInterface $logger,
-        private YandexOAuthClient $yandexClient,
+        mixed $yandexClient = null,
     ) {
+        $this->yandexClient = $yandexClient instanceof YandexOAuthClient ? $yandexClient : new YandexOAuthClient();
     }
 
     public static function getSubscribedEvents(): array
