@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Yandex Auth">
+  <rect width="64" height="64" rx="12" fill="#111827"/>
+  <circle cx="32" cy="32" r="20" fill="#fc3f1d"/>
+  <path fill="#fff" d="M35.9 48h-6.6V35.1l-9.1-19.1h7.1l5.4 12.5 5.3-12.5h6.8l-8.9 19.1V48Z"/>
+</svg>

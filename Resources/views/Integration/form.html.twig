@@ -1,0 +1,64 @@
+<style>
+    .yandexauth-notes {
+        align-items: flex-start;
+    }
+
+    .yandexauth-notes__body {
+        display: block;
+        min-width: 0;
+        width: 100%;
+    }
+
+    .yandexauth-notes__label,
+    .yandexauth-notes__value {
+        display: block;
+        width: 100%;
+    }
+
+    .yandexauth-notes__label {
+        margin: 0 0 6px;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+
+    .yandexauth-notes__value {
+        box-sizing: border-box;
+        margin: 0 0 16px;
+        padding: 10px 12px;
+        background: rgba(255, 255, 255, 0.78);
+        border-radius: 4px;
+        color: #1f2933;
+        line-height: 1.45;
+        overflow-wrap: anywhere;
+        white-space: normal;
+    }
+
+    .yandexauth-notes__value:last-child {
+        margin-bottom: 0;
+    }
+
+    .yandexauth-settings-copyright {
+        display: block;
+        margin: 10px 0 0;
+        color: #6b7280;
+        font-size: 12px;
+        line-height: 1.4;
+        text-align: right;
+    }
+
+    .yandexauth-settings-copyright a {
+        color: inherit;
+        text-decoration: underline;
+    }
+</style>
+
+<div class="alert alert-info yandexauth-notes">
+    <div class="yandexauth-notes__body">
+        <p class="yandexauth-notes__label">{{ 'mautic.integration.yandexauth.notes.redirect_uri'|trans }}</p>
+        <code class="yandexauth-notes__value">{{ redirect_uri }}</code>
+        <p class="yandexauth-notes__label">{{ 'mautic.integration.yandexauth.notes.scope'|trans }}</p>
+        <code class="yandexauth-notes__value">{{ scope }}</code>
+    </div>
+</div>
+
+<span class="yandexauth-settings-copyright">Copyright <a href="https://sales-snap.com" target="_blank" rel="noopener noreferrer">Sales-snap.com</a> 2026</span>

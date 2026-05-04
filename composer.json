@@ -1,0 +1,19 @@
+{
+    "name": "sales-snap/mautic-yandex-auth-bundle",
+    "description": "Yandex sign-in plugin for Mautic users matched by email.",
+    "type": "mautic-plugin",
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "MauticPlugin\\YandexAuthBundle\\": ""
+        }
+    },
+    "extra": {
+        "install-directory-name": "YandexAuthBundle"
+    },
+    "require": {
+        "php": ">=8.1",
+        "ext-json": "*",
+        "mautic/core-lib": "^5.0 || ^6.0 || ^7.0"
+    }
+}
