@@ -23,8 +23,8 @@
 
     .yandexauth-notes__value {
         box-sizing: border-box;
-        margin: 0 0 16px;
-        padding: 10px 12px;
+        margin: 0;
+        padding: 10px 112px 10px 12px;
         background: rgba(255, 255, 255, 0.78);
         border-radius: 4px;
         color: #1f2933;
@@ -33,8 +33,38 @@
         white-space: normal;
     }
 
-    .yandexauth-notes__value:last-child {
+    .yandexauth-notes__copy-row {
+        display: block;
+        margin: 0 0 16px;
+        position: relative;
+        width: 100%;
+    }
+
+    .yandexauth-notes__copy-row:last-child {
         margin-bottom: 0;
+    }
+
+    .yandexauth-notes__copy {
+        background: #fff;
+        border: 1px solid rgba(31, 41, 51, 0.22);
+        border-radius: 4px;
+        color: #1f2933;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.2;
+        min-width: 76px;
+        padding: 6px 8px;
+        position: absolute;
+        right: 6px;
+        top: 6px;
+        white-space: nowrap;
+    }
+
+    .yandexauth-notes__copy:hover,
+    .yandexauth-notes__copy:focus {
+        border-color: rgba(31, 41, 51, 0.45);
+        color: #111827;
     }
 
     .yandexauth-settings-copyright {
@@ -55,10 +85,68 @@
 <div class="alert alert-info yandexauth-notes">
     <div class="yandexauth-notes__body">
         <p class="yandexauth-notes__label">{{ 'mautic.integration.yandexauth.notes.redirect_uri'|trans }}</p>
-        <code class="yandexauth-notes__value">{{ redirect_uri }}</code>
+        <div class="yandexauth-notes__copy-row">
+            <code id="yandexauth-redirect-uri-value" class="yandexauth-notes__value">{{ redirect_uri }}</code>
+            <button type="button" class="yandexauth-notes__copy" data-yandexauth-copy="yandexauth-redirect-uri-value" data-copy-label="{{ 'mautic.integration.yandexauth.notes.copy'|trans|e('html_attr') }}" data-copied-label="{{ 'mautic.integration.yandexauth.notes.copied'|trans|e('html_attr') }}">{{ 'mautic.integration.yandexauth.notes.copy'|trans }}</button>
+        </div>
         <p class="yandexauth-notes__label">{{ 'mautic.integration.yandexauth.notes.scope'|trans }}</p>
-        <code class="yandexauth-notes__value">{{ scope }}</code>
+        <div class="yandexauth-notes__copy-row">
+            <code id="yandexauth-scope-value" class="yandexauth-notes__value">{{ scope }}</code>
+            <button type="button" class="yandexauth-notes__copy" data-yandexauth-copy="yandexauth-scope-value" data-copy-label="{{ 'mautic.integration.yandexauth.notes.copy'|trans|e('html_attr') }}" data-copied-label="{{ 'mautic.integration.yandexauth.notes.copied'|trans|e('html_attr') }}">{{ 'mautic.integration.yandexauth.notes.copy'|trans }}</button>
+        </div>
     </div>
 </div>
 
 <span class="yandexauth-settings-copyright">Copyright <a href="https://sales-snap.ru" target="_blank" rel="noopener noreferrer">Sales-snap.ru</a> 2026</span>
+<script>
+    (function () {
+        var buttons = document.querySelectorAll('[data-yandexauth-copy]');
+
+        function fallbackCopy(value) {
+            var textarea = document.createElement('textarea');
+            textarea.value = value;
+            textarea.setAttribute('readonly', 'readonly');
+            textarea.style.position = 'fixed';
+            textarea.style.left = '-9999px';
+            document.body.appendChild(textarea);
+            textarea.select();
+
+            try {
+                document.execCommand('copy');
+            } finally {
+                document.body.removeChild(textarea);
+            }
+        }
+
+        function copyText(value) {
+            if (navigator.clipboard && window.isSecureContext) {
+                return navigator.clipboard.writeText(value).catch(function () {
+                    fallbackCopy(value);
+                });
+            }
+
+            fallbackCopy(value);
+
+            return Promise.resolve();
+        }
+
+        Array.prototype.forEach.call(buttons, function (button) {
+            button.addEventListener('click', function () {
+                var target = document.getElementById(button.getAttribute('data-yandexauth-copy'));
+                var copyLabel = button.getAttribute('data-copy-label') || button.textContent;
+                var copiedLabel = button.getAttribute('data-copied-label') || 'Copied';
+
+                if (!target) {
+                    return;
+                }
+
+                copyText(target.textContent.trim()).then(function () {
+                    button.textContent = copiedLabel;
+                    window.setTimeout(function () {
+                        button.textContent = copyLabel;
+                    }, 1200);
+                });
+            });
+        });
+    })();
+</script>
