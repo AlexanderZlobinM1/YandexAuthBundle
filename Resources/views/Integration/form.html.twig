@@ -21,6 +21,16 @@
         line-height: 1.4;
     }
 
+    .yandexauth-notes__instruction {
+        margin: 0 0 14px;
+        line-height: 1.45;
+    }
+
+    .yandexauth-notes__instruction a {
+        font-weight: 600;
+        text-decoration: underline;
+    }
+
     .yandexauth-notes__value {
         box-sizing: border-box;
         margin: 0;
@@ -84,6 +94,11 @@
 
 <div class="alert alert-info yandexauth-notes">
     <div class="yandexauth-notes__body">
+        <p class="yandexauth-notes__instruction">
+            {{ 'mautic.integration.yandexauth.notes.instruction.before'|trans }}
+            <a href="https://oauth.yandex.ru/client/my" target="_blank" rel="noopener noreferrer">{{ 'mautic.integration.yandexauth.notes.instruction.link'|trans }}</a>
+            {{ 'mautic.integration.yandexauth.notes.instruction.after'|trans }}
+        </p>
         <p class="yandexauth-notes__label">{{ 'mautic.integration.yandexauth.notes.redirect_uri'|trans }}</p>
         <div class="yandexauth-notes__copy-row">
             <code id="yandexauth-redirect-uri-value" class="yandexauth-notes__value">{{ redirect_uri }}</code>

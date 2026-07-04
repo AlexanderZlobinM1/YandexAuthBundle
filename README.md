@@ -23,7 +23,8 @@ No Mautic user is auto-created.
 6. Keep **Show Yandex button on login page** enabled if the login page should show the extra button.
 7. Publish the plugin and save.
 
-The plugin tile shows the exact callback URL and required Yandex OAuth scope.
+The plugin tile links to the Yandex OAuth application list and shows the exact
+callback URL plus required Yandex OAuth scope.
 
 ## Yandex OAuth setup
 
