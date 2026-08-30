@@ -1,0 +1,4 @@
+{% set sales_snap_domain = app.request.locale starts with 'ru' ? 'sales-snap.ru' : 'sales-snap.com' %}
+<div class="sales-snap-plugin-footer">
+    Copyright 2026 <a href="https://{{ sales_snap_domain }}" target="_blank" rel="noopener noreferrer">{{ sales_snap_domain }}</a>. All Rights Reserved.
+</div>

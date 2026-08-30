@@ -15,5 +15,8 @@
         "php": ">=8.1",
         "ext-json": "*",
         "mautic/core-lib": "^5.0 || ^6.0 || ^7.0"
+    },
+    "scripts": {
+        "test": "php Tests/test_footer_locale.php"
     }
 }
