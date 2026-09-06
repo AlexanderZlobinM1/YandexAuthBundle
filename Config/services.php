@@ -22,6 +22,9 @@ return function (ContainerConfigurator $configurator): void {
         'Translations',
     ];
 
+    // Legacy config.php treats FQCN arguments as strings, not service references.
+    $services->alias('yandexauthbundle.helper.encryption', \Mautic\CoreBundle\Helper\EncryptionHelper::class);
+
     $services->load('MauticPlugin\\YandexAuthBundle\\', '../')
         ->exclude('../{'.implode(',', array_merge(MauticCoreExtension::DEFAULT_EXCLUDES, $excludes)).'}');
 };

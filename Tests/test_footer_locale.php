@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
-require dirname(__DIR__).'/vendor/autoload.php';
+require getenv('MAUTIC_TEST_AUTOLOAD') ?: dirname(__DIR__).'/vendor/autoload.php';
 
 $loader = new FilesystemLoader(dirname(__DIR__).'/Resources/views/Integration');
 $twig   = new Environment($loader);
