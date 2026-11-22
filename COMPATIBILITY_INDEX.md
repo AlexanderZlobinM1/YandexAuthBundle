@@ -2,7 +2,7 @@
 
 Last synchronized from confirmed workspace evidence: 22 November 2026.
 
-Indexed compatibility release: `1.1.4` (`d101e0c` tag). Canonical metadata head: `main` @ `9723b42` (license review 22 Nov 2026); `azlobin` follows the same commit. Declared support: Mautic 5.x, 6.x, 7.x; PHP >=8.1.
+Indexed compatibility release: `1.1.4` (`d101e0c` tag). Canonical metadata head: `main` @ `169a2ed` (license review 22 Nov 2026); `azlobin` follows the same commit. Declared support: Mautic 5.x, 6.x, 7.x; PHP >=8.1.
 
 | Mautic | Status | Confirmed scope |
 | --- | --- | --- |
