@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Publish the repository under the GNU General Public License v3 or later with Alexander Zlobin as the copyright holder.
+
 ## 1.1.4 — 2026-09-06
 
 - Support Mautic 7.2 while retaining the declared older Mautic versions.

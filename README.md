@@ -2,6 +2,9 @@
 
 Yandex sign-in plugin for Mautic 5, 6, and 7.
 
+This repository is open-source software released under the GNU General Public License v3 or later.
+Copyright (c) Alexander Zlobin.
+
 The plugin authenticates only existing Mautic users. A Yandex login succeeds when:
 
 - the plugin is published and configured,
@@ -92,3 +95,7 @@ Leave it empty to allow any Yandex account whose email exactly matches an existi
 
 - [Yandex ID authorization code flow with PKCE](https://yandex.ru/dev/id/doc/en/codes/code-url)
 - [Yandex ID user information request](https://yandex.ru/dev/id/doc/en/user-information)
+
+## License
+
+This project is licensed under the [GNU General Public License v3 or later](LICENSE).
