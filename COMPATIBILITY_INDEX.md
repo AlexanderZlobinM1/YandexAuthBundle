@@ -2,7 +2,7 @@
 
 Last synchronized from confirmed workspace evidence: 25 November 2026.
 
-Indexed compatibility release: `1.1.4` (`d101e0c` tag). Shared alternative-auth contract candidate is pending the common sandbox; GPL licensing metadata commit: `9723b42` (22 Nov 2026). Declared support: Mautic 5.x, 6.x, 7.x; PHP >=8.1.
+Indexed compatibility release: `1.1.4` (`d101e0c` tag). Shared alternative-auth contract candidate: `06cd5e82560fe6e31804e904f6685e2ab88388d2`, pushed to canonical `main` and pending the common sandbox. GPL licensing metadata commit: `9723b42` (22 Nov 2026). Declared support: Mautic 5.x, 6.x, 7.x; PHP >=8.1.
 
 | Mautic | Status | Confirmed scope |
 | --- | --- | --- |
