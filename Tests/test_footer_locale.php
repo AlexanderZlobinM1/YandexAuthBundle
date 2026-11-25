@@ -38,6 +38,7 @@ foreach ($cases as $locale => $expectedDomain) {
 $separatorCases = [
     'en_US' => 'or',
     'ru'    => 'или',
+    'sr_RS' => 'ili',
 ];
 
 foreach ($separatorCases as $locale => $expectedSeparator) {

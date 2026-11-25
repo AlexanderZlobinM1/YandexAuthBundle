@@ -29,6 +29,21 @@ No Mautic user is auto-created.
 The plugin tile links to the Yandex OAuth application list and shows the exact
 callback URL plus required Yandex OAuth scope.
 
+## Shared login alternative contract
+
+The Yandex login button participates in the shared Mautic alternative-auth
+contract with class mautic-auth-alternative-button and
+data-mautic-auth-alternative="1". Its participating wrapper uses
+data-mautic-auth-alternative-block="1" and exposes the translated separator
+label through data-mautic-auth-separator-label.
+
+The bundled window.MauticAuthAlternativeCoordinator keeps exactly one
+mautic-auth-alternative-separator with
+data-mautic-auth-alternative-separator="1" immediately before the first
+alternative wrapper in DOM order. It removes duplicates, follows the top
+wrapper's translation, and safely re-runs after AJAX or other DOM changes. The
+ordinary Mautic username/password login is not changed.
+
 ## Yandex OAuth setup
 
 This plugin uses the Yandex OAuth authorization code flow with PKCE. It stores only the public Client ID in Mautic and does not require a Client Secret in the plugin settings.

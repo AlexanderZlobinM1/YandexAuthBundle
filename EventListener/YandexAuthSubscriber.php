@@ -284,12 +284,17 @@ class YandexAuthSubscriber implements EventSubscriberInterface
         $startUrl  = $this->router->generate('mautic_sso_login', ['integration' => YandexAuthIntegration::NAME]);
         $label     = $this->translator->trans('mautic.integration.yandexauth.login_button');
         $separator = $this->translator->trans('mautic.integration.yandexauth.login_separator');
+        $script    = file_get_contents(dirname(__DIR__).'/Resources/js/auth-alternative-coordinator.js');
 
-        return '<style>.yandexauth-login-block{clear:both;margin:14px 0 0}.yandexauth-sep{font-size:11px;color:#6b7280;text-align:center;margin:10px 0}.yandexauth-button{box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:42px;padding:10px 14px;border:1px solid #111827;border-radius:6px;background:#111827;color:#fff;font-size:14px;font-weight:600;text-decoration:none}.yandexauth-button:hover,.yandexauth-button:focus{background:#000;color:#fff;text-decoration:none}.yandexauth-mark{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#fc3f1d;color:#fff;font-weight:700;font-family:Arial,sans-serif}</style>'.
-            '<div class="yandexauth-login-block">'.
-            '<div class="yandexauth-sep">'.$this->e($separator).'</div>'.
-            '<a class="yandexauth-button" href="'.$this->e($startUrl).'"><span class="yandexauth-mark">Я</span><span>'.$this->e($label).'</span></a>'.
-            '</div>';
+        if (false === $script) {
+            throw new \RuntimeException('Yandex Auth alternative-login coordinator is missing.');
+        }
+
+        return '<style>.yandexauth-login-block{clear:both;margin:14px 0 0}.mautic-auth-alternative-separator{font-size:11px;color:#6b7280;text-align:center;margin:10px 0}.yandexauth-button{box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:42px;padding:10px 14px;border:1px solid #111827;border-radius:6px;background:#111827;color:#fff;font-size:14px;font-weight:600;text-decoration:none}.yandexauth-button:hover,.yandexauth-button:focus{background:#000;color:#fff;text-decoration:none}.yandexauth-mark{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#fc3f1d;color:#fff;font-weight:700;font-family:Arial,sans-serif}</style>'.
+            '<div class="yandexauth-login-block" data-mautic-auth-alternative-block="1" data-mautic-auth-separator-label="'.$this->e($separator).'">'.
+            '<a class="yandexauth-button mautic-auth-alternative-button" data-mautic-auth-alternative="1" href="'.$this->e($startUrl).'"><span class="yandexauth-mark">Я</span><span>'.$this->e($label).'</span></a>'.
+            '</div>'.
+            '<script>'.$script.'</script>';
     }
 
     private function removeStandardSsoLink(string $content): string

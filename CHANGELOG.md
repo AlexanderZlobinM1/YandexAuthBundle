@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Add the shared Mautic alternative-auth button contract and an idempotent DOM
+  coordinator that keeps one translated separator before the top alternative
+  wrapper across multiple auth plugins and repeated DOM initialization.
+- Add Serbian (sr_RS) login-button and separator translations.
+- Add browser-contract tests for single and multiple buttons, ordering changes,
+  duplicate separators, and repeated initialization.
 - Publish the repository under the GNU General Public License v3 or later with Alexander Zlobin as the copyright holder.
 
 ## 1.1.4 — 2026-09-06
