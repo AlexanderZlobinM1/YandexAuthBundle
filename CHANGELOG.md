@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.1.5 — 2026-11-25
 
 - Add the shared Mautic alternative-auth button contract and an idempotent DOM
   coordinator that keeps one translated separator before the top alternative

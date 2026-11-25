@@ -8,6 +8,10 @@
         }
         if (typeof existing.coordinate === 'function') {
             existing.coordinate();
+        } else if (typeof existing.sync === 'function') {
+            existing.sync();
+        } else if (typeof existing.run === 'function') {
+            existing.run();
         }
 
         return;
@@ -134,6 +138,12 @@
     root.MauticAuthAlternativeCoordinator = {
         coordinate: coordinate,
         install: install,
+        run: coordinate,
+        sync: schedule,
+        register: function () {
+            install();
+            coordinate();
+        },
     };
 
     install();

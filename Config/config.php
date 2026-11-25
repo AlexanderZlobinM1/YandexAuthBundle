@@ -5,7 +5,7 @@ $mauticMajor = (int) (new \Mautic\CoreBundle\Helper\AppVersion())->getVersion();
 return [
     'name'        => 'Yandex Auth',
     'description' => 'Yandex sign-in for existing Mautic users matched by email.',
-    'version'     => '1.1.4',
+    'version'     => '1.1.5',
     'author'      => 'Sales Snap',
     'services'    => [
         'events' => [
